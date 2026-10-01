@@ -1,0 +1,17 @@
+{
+  "name": "DulceApp",
+  "short_name": "DulceApp",
+  "description": "Aplicación para el control de costos y rentabilidad",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff8f0",
+  "theme_color": "#8b5e3c",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "iconos/icono.png",
+      "sizes": "1254x1254",
+      "type": "image/png"
+    }
+  ]
+}
