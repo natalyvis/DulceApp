@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DulceApp</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <!-- INICIO -->
+
+    <header>
+        <h1>🪙 DULCEAPP</h1>
+        <p>Control de costos y rentabilidad</p>
+    </header>
+
+    <main>
+
+        <button onclick="mostrarRegistro()">
+            📦 Registrar producto
+        </button>
+
+        <button onclick="mostrarConsulta()">
+            📊 Consultar costos
+        </button>
+
+        <button onclick="mostrarRentabilidad()">
+            💰 Rentabilidad
+        </button>
+
+        <button onclick="mostrarHistorial()">
+            📋 Historial
+        </button>
+
+        <button onclick="mostrarGuia()">
+            📖 Guía de uso
+        </button>
+
+    </main>
+
+    <button class="boton-salir" onclick="salirDeLaApp()">
+        🚪 Salir de la app
+    </button>
+
+
+    <!-- REGISTRAR PRODUCTO -->
+
+    <section id="registro" class="seccion-registro">
+
+        <button class="boton-volver" onclick="volverInicio()">
+            ← Volver al inicio
+        </button>
+
+        <h2>📦 Registrar producto</h2>
+
+        <label>Categoría</label>
+
+        <select id="categoria">
+            <option value="Galletas">🍪 Galletas</option>
+            <option value="Dulces">🍬 Dulces</option>
+            <option value="Líquidos">🥤 Líquidos</option>
+            <option value="Snacks">🍿 Snacks</option>
+            <option value="Otros">📦 Otros</option>
+        </select>
+
+
+        <label>Nombre / detalle del producto</label>
+
+        <input
+            type="text"
+            id="producto"
+            placeholder="Ejemplo: Oreo 6 unidades"
+        >
+
+
+        <label>Cantidad comprada</label>
+
+        <input
+            type="number"
+            id="cantidad"
+            placeholder="Ejemplo: 12"
+        >
+
+
+        <label>Costo total de compra</label>
+
+        <input
+            type="number"
+            id="costo"
+            placeholder="Ejemplo: 30"
+            step="0.01"
+        >
+
+
+        <label>Precio de venta por unidad</label>
+
+        <input
+            type="number"
+            id="precio"
+            placeholder="Ejemplo: 4"
+            step="0.01"
+        >
+
+
+        <button onclick="calcularCostos()">
+            🧮 CALCULAR COSTOS
+        </button>
+
+        <div id="resultado"></div>
+
+
+        <button
+            onclick="guardarProducto()"
+            id="botonGuardar"
+            style="display: none;"
+        >
+            💾 GUARDAR PRODUCTO
+        </button>
+
+    </section>
+
+
+    <!-- CONSULTAR COSTOS -->
+
+    <section id="consulta" class="seccion-consulta">
+
+        <button class="boton-volver" onclick="volverInicio()">
+            ← Volver al inicio
+        </button>
+
+        <h2>📊 Consultar costos</h2>
+
+
+        <label>Filtrar por categoría</label>
+
+        <select
+            id="filtroCategoria"
+            onchange="mostrarProductos()"
+        >
+            <option value="Todas">📦 Todas</option>
+            <option value="Galletas">🍪 Galletas</option>
+            <option value="Dulces">🍬 Dulces</option>
+            <option value="Líquidos">🥤 Líquidos</option>
+            <option value="Snacks">🍿 Snacks</option>
+            <option value="Otros">📦 Otros</option>
+        </select>
+
+
+        <div id="listaProductos"></div>
+
+    </section>
+    <section id="historial" class="seccion-historial">
+
+    <button class="boton-volver" onclick="volverInicio()">
+        ← Volver al inicio
+    </button>
+
+    <h2>📋 Historial de productos</h2>
+
+    <label>Filtrar por mes</label>
+
+    <select id="filtroMes" onchange="mostrarHistorialProductos()">
+        <option value="Todos">📅 Todos los meses</option>
+    </select>
+
+    <label>Filtrar por categoría</label>
+
+    <select id="filtroHistorialCategoria" onchange="mostrarHistorialProductos()">
+        <option value="Todas">📦 Todas</option>
+        <option value="Galletas">🍪 Galletas</option>
+        <option value="Dulces">🍬 Dulces</option>
+        <option value="Líquidos">🥤 Líquidos</option>
+        <option value="Snacks">🍿 Snacks</option>
+        <option value="Otros">📦 Otros</option>
+    </select>
+
+    <div id="listaHistorial"></div>
+
+</section>
+
+<section id="rentabilidad" class="seccion-rentabilidad">
+
+    <button class="boton-volver" onclick="volverInicio()">
+        ← Volver al inicio
+    </button>
+
+    <h2>💰 Rentabilidad</h2>
+
+<div class="filtros-rentabilidad">
+
+    <div class="filtro-item">
+
+        <label>📂 Categoría</label>
+
+        <select
+            id="filtroRentabilidadCategoria"
+            onchange="calcularRentabilidad()"
+        >
+            <option value="Todas">📦 Todas</option>
+            <option value="Galletas">🍪 Galletas</option>
+            <option value="Dulces">🍬 Dulces</option>
+            <option value="Líquidos">🥤 Líquidos</option>
+            <option value="Snacks">🍿 Snacks</option>
+            <option value="Otros">📦 Otros</option>
+        </select>
+
+    </div>
+
+
+    <div class="filtro-item">
+
+        <label>📅 Mes</label>
+
+        <select
+            id="filtroRentabilidadMes"
+            onchange="calcularRentabilidad()"
+        >
+            <option value="Todos">📅 Todos los meses</option>
+        </select>
+
+    </div>
+
+</div>
+
+
+<div id="resumenRentabilidad"></div>
+
+    <hr>
+
+    <h3>📊 Detalle de productos</h3>
+
+    <div id="detalleRentabilidad"></div>
+
+</section>
+
+<section id="guia" class="seccion-guia">
+
+    <button class="boton-volver" onclick="volverInicio()">
+        ← Volver al inicio
+    </button>
+
+    <h2>📖 Guía de uso</h2>
+
+    <div class="paso-guia">
+
+        <h3>📦 1. Registrar producto</h3>
+
+        <p>
+            Selecciona la categoría del producto e ingresa su nombre,
+            cantidad comprada, costo total de compra y precio de venta
+            por unidad.
+        </p>
+
+    </div>
+
+
+    <div class="paso-guia">
+
+        <h3>🧮 2. Calcular costos</h3>
+
+        <p>
+            Presiona el botón “Calcular costos” para conocer el costo
+            unitario, la ganancia por unidad, la ganancia total y el
+            margen de ganancia.
+        </p>
+
+    </div>
+
+
+    <div class="paso-guia">
+
+        <h3>💾 3. Guardar producto</h3>
+
+        <p>
+            Después de revisar los resultados, guarda el producto.
+            La aplicación registrará automáticamente el mes y año.
+        </p>
+
+    </div>
+
+
+    <div class="paso-guia">
+
+        <h3>📊 4. Consultar costos</h3>
+
+        <p>
+            Permite consultar los productos registrados y filtrarlos
+            según su categoría.
+        </p>
+
+    </div>
+
+
+    <div class="paso-guia">
+
+        <h3>💰 5. Rentabilidad</h3>
+
+        <p>
+            Muestra un resumen de los costos, ganancias y márgenes
+            de los productos registrados.
+        </p>
+
+    </div>
+
+
+    <div class="paso-guia">
+
+        <h3>📋 6. Historial</h3>
+
+        <p>
+            Permite revisar los productos registrados y consultar
+            la información según el mes y la categoría.
+        </p>
+
+    </div>
+    <div class="zona-datos">
+
+    <h3>⚙️ Opciones de datos</h3>
+
+    <p>
+        Si deseas comenzar nuevamente las pruebas, puedes eliminar
+        todos los productos guardados.
+    </p>
+
+    <button class="boton-borrar" onclick="confirmarBorrado()">
+        🗑️ Borrar todos los datos
+    </button>
+
+</div>
+
+</section>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

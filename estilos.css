@@ -1,0 +1,597 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f3ef;
+    color: #333;
+    min-height: 100vh;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+/* Encabezado */
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Menú */
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+main button {
+    border: none;
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.2s;
+}
+
+main button:hover {
+    transform: translateY(-3px);
+}
+
+/* Botón salir */
+
+.boton-salir {
+    display: block;
+    margin: 35px auto 0;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.boton-salir:hover {
+    transform: translateY(-2px);
+}
+.seccion-registro {
+    display: none;
+}
+
+#REGISTRAR_Compra
+
+/* Pantalla de registro */
+
+.seccion-registro {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.seccion-registro h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.seccion-registro label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.seccion-registro input,
+.seccion-registro select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.seccion-registro input:focus,
+.seccion-registro select:focus {
+    outline: none;
+    border-color: #999;
+}
+
+.seccion-registro button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#resultado {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f7f3ef;
+}
+
+#resultado h3 {
+    margin-bottom: 15px;
+}
+
+#resultado p {
+    margin: 8px 0;
+}
+
+.seccion-consulta {
+    display: none;
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.seccion-consulta h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.seccion-consulta label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.seccion-consulta select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* ============================= */
+/* CONSULTAR COSTOS */
+/* ============================= */
+
+.seccion-consulta {
+    display: none;
+    max-width: 750px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.seccion-consulta h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.seccion-consulta label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.seccion-consulta select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background: white;
+}
+
+
+/* TARJETAS DE PRODUCTOS */
+
+.tarjeta-producto {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.tarjeta-producto h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 20px;
+}
+
+.tarjeta-producto p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.tarjeta-producto hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 18px 0;
+}
+
+.fecha-producto {
+    margin-top: 18px !important;
+    font-size: 14px !important;
+    opacity: 0.75;
+}
+
+
+/* CUANDO NO HAY PRODUCTOS */
+
+.sin-productos {
+    text-align: center;
+    padding: 30px;
+    background: #fafafa;
+    border-radius: 15px;
+    color: #666;
+}
+
+/* ============================= */
+/* HISTORIAL */
+/* ============================= */
+
+.seccion-historial {
+    display: none;
+    max-width: 750px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.seccion-historial h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.seccion-historial label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.seccion-historial select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background: white;
+}
+
+.tarjeta-historial {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 18px;
+}
+
+.tarjeta-historial h3 {
+    margin-top: 0;
+}
+
+.tarjeta-historial p {
+    margin: 8px 0;
+}
+
+.sin-historial {
+    text-align: center;
+    padding: 30px;
+    margin-top: 20px;
+    background: #fafafa;
+    border-radius: 15px;
+    color: #666;
+}
+
+/* ============================= */
+/* RENTABILIDAD */
+/* ============================= */
+
+.seccion-rentabilidad {
+    display: none;
+    max-width: 750px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.seccion-rentabilidad h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.resumen-rentabilidad {
+    background: #fafafa;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.resumen-rentabilidad p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.detalle-rentabilidad {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+    padding: 18px;
+    margin-top: 15px;
+}
+
+.detalle-rentabilidad h4 {
+    margin-top: 0;
+}
+
+.estado-ganancia {
+    font-weight: bold;
+}
+
+.sin-rentabilidad {
+    text-align: center;
+    padding: 30px;
+    background: #fafafa;
+    border-radius: 15px;
+    color: #666;
+}
+
+/* ============================= */
+/* GUÍA DE USO */
+/* ============================= */
+
+.seccion-guia {
+    display: none;
+    max-width: 750px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.seccion-guia h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.paso-guia {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.paso-guia h3 {
+    margin-top: 0;
+}
+
+.paso-guia p {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* ============================= */
+/* OPCIONES DE DATOS */
+/* ============================= */
+
+.zona-datos {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background: #fafafa;
+    text-align: center;
+}
+
+.zona-datos h3 {
+    margin-top: 0;
+}
+
+.zona-datos p {
+    color: #666;
+}
+
+.boton-borrar {
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.filtros-rentabilidad {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 18px;
+    background: #fafafa;
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+}
+
+.filtro-item label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.filtro-item select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.tarjetas-resumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.tarjeta-resumen {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+    padding: 18px;
+    text-align: center;
+}
+
+.tarjeta-resumen span {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.tarjeta-resumen small {
+    display: block;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.tarjeta-resumen strong {
+    display: block;
+    font-size: 20px;
+}
+
+/* ============================= */
+/* DETALLE POR CATEGORÍAS */
+/* ============================= */
+
+.grupo-categoria-rentabilidad {
+    margin-top: 25px;
+}
+
+.grupo-categoria-rentabilidad > h3 {
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+}
+
+.productos-categoria {
+    display: grid;
+    gap: 12px;
+}
+
+.detalle-rentabilidad {
+    padding: 18px;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid #e5e5e5;
+}
+
+.detalle-rentabilidad h4 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.detalle-rentabilidad p {
+    margin: 7px 0;
+}
+
+.acciones-producto {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.acciones-producto button {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.boton-editar {
+    background: #eecfd8;
+    color: #5c0023;
+}
+
+.boton-eliminar {
+    background: #a29faf;
+    color: #302643;
+}
+
+.acciones-producto button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.boton-editar {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.pantalla-salida {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.pantalla-salida h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.pantalla-salida h2 {
+    margin-bottom: 10px;
+}
+
+.pantalla-salida p {
+    opacity: 0.7;
+}
